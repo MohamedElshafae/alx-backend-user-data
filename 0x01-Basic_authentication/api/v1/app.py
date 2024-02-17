@@ -46,7 +46,8 @@ def before_request():
     path = request.path
     if path[-1] != '/':
         path += '/'
-    if path in ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']:
+    if path in ['/api/v1/status/', '/api/v1/unauthorized/',
+                '/api/v1/forbidden/']:
         return
     if auth.authorization_header(request) is None:
         abort(401)
